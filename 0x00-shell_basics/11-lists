@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -a -l -1 -g --sort=none /boot -l -g
+ls -a -l -1 -g --sort=none
