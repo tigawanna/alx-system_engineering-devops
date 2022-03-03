@@ -13,3 +13,5 @@
 12. find . -type d -exec chmod 700 {} +
 13.  mkdir -m700 my_dir
 14. chgrp school hello
+15. sudo chown -R vincent:staff *
+16.
