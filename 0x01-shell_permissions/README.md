@@ -16,5 +16,5 @@
 15. sudo chown -R vincent:staff *
 16. chown -h vincent:staff _helllo
 17.  sudo chown -R --from=guillaume betty *
-18.  telnet towel.blinkenlights.nl
-
+18.  telnet towel.blinkenlights.nl  
+remember test to see if they work first
