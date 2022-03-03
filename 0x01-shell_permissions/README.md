@@ -17,4 +17,4 @@
 16. chown -h vincent:staff _helllo
 17.  sudo chown -R --from=guillaume betty *
 18.  telnet towel.blinkenlights.nl  
-remember test to see if they work first
+remember test to see if they work
