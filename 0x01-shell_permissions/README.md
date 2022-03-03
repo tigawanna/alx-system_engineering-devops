@@ -7,4 +7,5 @@
 6. chmod 764 hello
 7. chmod 554 hello
 8. chmod 555 hello
+9. chmod 707 hello
 
