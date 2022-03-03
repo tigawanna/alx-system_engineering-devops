@@ -14,4 +14,5 @@
 13.  mkdir -m700 my_dir
 14. chgrp school hello
 15. sudo chown -R vincent:staff *
-16.
+16. chown -h vincent:staff _helllo
+
