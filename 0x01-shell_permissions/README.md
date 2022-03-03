@@ -6,4 +6,5 @@
 5. touch hello
 6. chmod 764 hello
 7. chmod 554 hello
+8. chmod 555 hello
 
