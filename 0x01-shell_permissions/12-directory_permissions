@@ -1,0 +1,2 @@
+ii#!/bin/bash
+mkdir -m700 my_dir
