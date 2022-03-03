@@ -10,5 +10,6 @@
 9. chmod 707 hello
 10. chmod 753 hello
 11. chmod --reference=hello olleh
-12. chmod 
+12. find . -type d -exec chmod 700 {} +
+13.  
 
