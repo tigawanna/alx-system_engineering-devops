@@ -12,4 +12,4 @@
 11. chmod --reference=hello olleh
 12. find . -type d -exec chmod 700 {} +
 13.  mkdir -m700 my_dir
-
+14. chgrp school hello
