@@ -1,2 +1,2 @@
-i#!/bin/bash
-find . -type d -exec chmod 700 {} +
+#!/bin/bash
+find . -type d -exec chmod ugo+x {} +
