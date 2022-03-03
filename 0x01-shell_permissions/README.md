@@ -5,4 +5,5 @@
 4. sudo chown betty hello
 5. touch hello
 6. chmod 764 hello
+7. chmod 554 hello
 
