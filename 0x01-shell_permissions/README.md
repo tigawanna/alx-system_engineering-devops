@@ -15,4 +15,5 @@
 14. chgrp school hello
 15. sudo chown -R vincent:staff *
 16. chown -h vincent:staff _helllo
-
+17.  sudo chown -R --from=guillaume betty *
+18.  telnet towel.blinkenlights.nl
