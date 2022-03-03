@@ -9,4 +9,6 @@
 8. chmod 555 hello
 9. chmod 707 hello
 10. chmod 753 hello
+11. chmod --reference=hello olleh
+12. chmod 
 
