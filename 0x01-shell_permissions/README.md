@@ -2,4 +2,5 @@
 0. su betty
 1. whoami
 3. groups $whoami
+4. sudo chown betty hello
 
