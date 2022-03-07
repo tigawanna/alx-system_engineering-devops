@@ -1,2 +1,2 @@
 #!/bin/bash
- ls -lt| grep ^d|head -10
+ ls -ltr | grep ^d|head -10
