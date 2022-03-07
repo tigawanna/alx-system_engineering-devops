@@ -1,2 +1,2 @@
 #!/bin/bash
- ls -lt| grep ^d|wc -l 
+ ls -alt| grep ^d|wc -l 
