@@ -1,2 +1,2 @@
 # All About Shell REdurections And I/O
-wiil go in this repository
+wiil go in this repositoriy
