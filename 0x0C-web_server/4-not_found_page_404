@@ -7,15 +7,30 @@ apt install -y nginx
 echo "Hello World" > /var/www/html/index.html
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 sudo sed -i '36a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-sudo printf %s "server {
-    listen 80;
-    listen [::]:80 default_server;
+sudo printf %s "
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
     root /var/www/html;
-    index index.html;
+    index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+	
+
     location /redirect_me {
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
     }
-    error_page 404 /404.html;
-}" > /etc/nginx/sites-enabled/default
+    
+	error_page 404 /404.html;
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+}
+
+" > /etc/nginx/sites-enabled/default
 
 sudo service nginx restart
