@@ -1,15 +1,24 @@
 #!/usr/bin/env bash
-# Displays information about subdomains of a domain
-# shellcheck disable=SC2086
-my_function () {
-	echo -n "The subdomain $2 is a "
-	dig "$2"."$1" | grep -A1 'ANSWER SECTION:'| tail -1 | awk '{ printf "%s record and points to %s\n", $4, $5 }'
+# Inquire nameserver for record and ip address
+
+#shellcheck disable=SC2086
+dig_answer () {
+	DOMAIN=$1
+	SUBDOMAIN=$2
+
+	RECORD=$(dig +noall +answer $SUBDOMAIN.$DOMAIN | awk '{ print $4 }')
+	IP=$(dig +noall +answer $SUBDOMAIN.$DOMAIN | awk '{ print $5 }')
+
+	printf "The subdomain $2 is a %s record and points to %s\n" $RECORD $IP
+	return 0
 }
 
-if [ $# -ne 2 ]; then
-	for sub in 'www' 'lb-01' 'web-01' 'web-02' ; do
-		my_function $1 $sub
+if [ -z $2 ]; then
+	SUB_ARR=("www" "lb-01" "web-01" "web-02")
+
+	for ELM in "${SUB_ARR[@]}"; do
+		dig_answer $1 $ELM
 	done
 else
-		my_function $1 $2
+	dig_answer $1 $2
 fi
