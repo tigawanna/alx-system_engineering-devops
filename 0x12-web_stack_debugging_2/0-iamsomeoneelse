@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Script runs `whoami` as another user using `sudo -u`
+su -s /bin/sh "$1" -c "whoami"
