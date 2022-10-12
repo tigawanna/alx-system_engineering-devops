@@ -1,0 +1,6 @@
+# add the key to .ssh/id_alx.pub first theuse replace 3.236.220.126 with your ip
+
+ssh-copy-id -f -i $HOME/.ssh/id_alx.pub ubuntu@3.236.220.126
+
+
+
