@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# copies the alx public key to a server
+# pass in the ip address as argument
+sudo ssh-copy-id -i  alx_key.pub  ubuntu@$1
+
