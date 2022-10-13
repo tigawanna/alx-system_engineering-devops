@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# fullname="USER INPUT"
+read -p "Enter id: " rowid
+# user="USER INPUT"
+read -p "Enter name: " name
+sudo systemctl start mysql
+echo "use tyrell_corp; INSERT INTO \`nexus6\` (\`id\`, \`name\`) VALUES (${rowid}, \"test ${name} \"); select * from \`nexus6\`" | sudo mysql
