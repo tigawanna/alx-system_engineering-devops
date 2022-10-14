@@ -2,4 +2,7 @@
 
 # copies the alx public key to a server
 # pass in the ip address as argument and ensure the public key is saved in ~/.ssh/id_alx.pub
-ssh-copy-id -f -i $HOME/.ssh/id_alx.pub ubuntu@$1
+
+# fullname="USER INPUT"
+read -p "Enter destination IP adress: " ip
+ssh-copy-id -f -i $HOME/.ssh/id_alx.pub ubuntu@${ip}

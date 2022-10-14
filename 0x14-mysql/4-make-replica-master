@@ -1,7 +1,25 @@
 #!/usr/bin/env bash
-sudo ufw allow from 3.236.220.126 to any port 3306
+
+# master ip adress"
+read -p "Enter master server IP address: " master
+read -p "Enter master server IP address: " slave
+GRN = '\033[1;33m' 
+
+echo -e " ${GRN} #1 starting mysql service "
+sudo systemctl start mysql.service
+echo -e " ${GRN} #2 creatin replica master user and granting priveledges"
+
+echo "CREATE USER IF NOT EXISTS 'replica_user'@'%'IDENTIFIED BY 'projectcorrection280hbtn';
+GRANT ALL PRIVILEGES ON *.* TO 'replica_user'@'%'; SHOW GRANTS FOR 'replica_user'@'%'; 
+FLUSH PRIVILEGES;" | sudo mysql
+
+echo -e "${GRN} #3 opening port 3306"
+
+sudo ufw allow from ${slave} to any port 3306
+
+echo -e "${GRN} #4 adding replica master config"
 sudo printf "
- #
+#
 # The MySQL database server configuration file.
 #
 # One can use all long options that the program supports.
@@ -31,8 +49,8 @@ datadir       = /var/lib/mysql
 #
 # Instead of skip-networking the default is now to listen only on
 # localhost which is more compatible and is not less secure.
-bind-address            = 127.0.0.1
-mysqlx-bind-address     = 127.0.0.1
+#bind-address            = 127.0.0.1
+#mysqlx-bind-address     = 127.0.0.1
 #
 # * Fine Tuning
 #
@@ -83,6 +101,12 @@ relay-log	= /var/log/mysql/mysql-relay-bin.log
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
 
+
  " >  /etc/mysql/mysql.conf.d/mysqld.cnf
 
+sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf 
+echo -e "${GRN} #5 restrating mysql service"
 sudo systemctl restart mysql
+echo -e "${GRN} #6 master status " 
+echo " SHOW MASTER STATUS " | sudo mysql
+echo -e "${GRN} #7 done"
